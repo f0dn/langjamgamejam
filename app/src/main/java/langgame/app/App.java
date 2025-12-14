@@ -1,5 +1,7 @@
 package langgame.app;
 
+import java.util.HashMap;
+
 import javax.swing.SwingUtilities;
 
 public class App {
@@ -14,7 +16,10 @@ public class App {
                     {"water", "sand", "grass"}
                 };
                 Grid grid = new Grid(initialTiles, tileTypes);
-                new Window("testing", grid);
+                Entity player = new Entity();
+                HashMap<String, Entity> entities = new HashMap<>();
+                entities.put("player", player);
+                new Window("testing", grid, entities);
             }
         });
     }
