@@ -14,7 +14,7 @@ public class App {
                     {"water", "sand", "grass"}
                 };
                 Grid grid = new Grid(initialTiles, tileTypes);
-                new Window("testing", 800, 600);
+                new Window("testing", grid);
             }
         });
     }

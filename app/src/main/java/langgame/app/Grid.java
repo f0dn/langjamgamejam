@@ -1,6 +1,8 @@
 package langgame.app;
 
-class Grid {
+import javax.swing.JPanel;
+
+class Grid extends JPanel {
     private Tile[][] tiles;
     private TileTypes tileTypes;
 
@@ -14,6 +16,26 @@ class Grid {
                 this.tiles[row][col] = tileTypes.getTile(tiles[row][col]);
             }
         }
+    }
+
+    @Override
+    protected void paintComponent(java.awt.Graphics g) {
+        super.paintComponent(g);
+
+        for (int row = 0; row < tiles.length; row++) {
+            for (int col = 0; col < tiles[row].length; col++) {
+                Tile tile = tiles[row][col];
+
+                g.setColor(tile.getColor());
+                g.fillRect(col * 32, row * 32, 32, 32);
+            }
+        }
+    }
+
+    @Override
+    public java.awt.Dimension getPreferredSize() {
+        // TODO: Make tile size configurable
+        return new java.awt.Dimension(tiles[0].length * 32, tiles.length * 32);
     }
 
     public Tile getTile(int row, int col) {
