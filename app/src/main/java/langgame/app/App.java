@@ -19,7 +19,17 @@ public class App {
                 Entity player = new Entity();
                 HashMap<String, Entity> entities = new HashMap<>();
                 entities.put("player", player);
-                new Window("testing", grid, entities);
+                Window window = new Window("testing", grid, entities);
+                window.attachKeyListener(
+                    javax.swing.KeyStroke.getKeyStroke("UP"),
+                    new javax.swing.AbstractAction() {
+                        @Override
+                        public void actionPerformed(java.awt.event.ActionEvent e) {
+                            player.move(0, -1);
+                            window.repaint();
+                        }
+                    }
+                );
             }
         });
     }

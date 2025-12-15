@@ -15,7 +15,7 @@ class Entity extends JPanel {
 
         // TODO: Load from sprite
         g.setColor(java.awt.Color.RED);
-        g.fillOval(0, 0, 32, 32);
+        g.fillOval(x, y, 32, 32);
     }
 
     @Override
