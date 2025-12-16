@@ -9,14 +9,15 @@ class Grid extends JPanel {
     private Tile[][] tiles;
     private TileTypes tileTypes;
 
-    public Grid(String[][] tiles, TileTypes tileTypes) {
+    public Grid(String s, TileTypes tileTypes) {
         this.tileTypes = tileTypes;
-
-        this.tiles = new Tile[tiles.length][];
-        for (int row = 0; row < tiles.length; row++) {
-            this.tiles[row] = new Tile[tiles[row].length];
-            for (int col = 0; col < tiles[row].length; col++) {
-                this.tiles[row][col] = tileTypes.getTile(tiles[row][col]);
+        String[] rows = s.split("\n");
+        this.tiles = new Tile[rows.length][];
+        for (int row = 0; row < rows.length; row++) {
+            String[] cols = rows[row].split("\\s+");
+            this.tiles[row] = new Tile[cols.length];
+            for (int col = 0; col < cols.length; col++) {
+                this.tiles[row][col] = tileTypes.getTile(cols[col]);
             }
         }
     }

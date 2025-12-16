@@ -16,4 +16,8 @@ class TileTypes {
 
         return types.get(name);
     }
+
+    public boolean hasTile(String name) {
+        return types.containsKey(name);
+    }
 }
